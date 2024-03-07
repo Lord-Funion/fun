@@ -1,0 +1,20 @@
+[
+  {
+    "uuid": "86630a61-e542-311c-8fb0-2d98201c77f3",
+    "name": "big_mirror12",
+    "level": 4,
+    "bypassesPlayerLimit": false
+  },
+  {
+    "uuid": "142e13a3-5ed9-3e16-b489-325089409cb5",
+    "name": "Lord_Fire",
+    "level": 4,
+    "bypassesPlayerLimit": false
+  },
+  {
+    "uuid": "2354696e-5f5b-30d5-be29-3546a8c148ed",
+    "name": "Lord_Funion",
+    "level": 4,
+    "bypassesPlayerLimit": false
+  }
+]
