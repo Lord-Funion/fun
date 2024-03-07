@@ -7,6 +7,7 @@ import subprocess
 import os
 import logging
 from datetime import datetime
+import json
 
 from contextlib import redirect_stdout, redirect_stderr
 from pyngrok import conf, ngrok
@@ -52,11 +53,12 @@ file3_1_5_2 = "https://git.eaglercraft.online/eaglercraft/eaglercraft-builds/raw
 file3_location_1_5_2 = "Bungee-1.5.2/server-icon.png"
 latest_spigot_1_5_2 = "https://cdn.getbukkit.org/spigot/spigot-1.5.2-R1.1-SNAPSHOT.jar"
 spigot_location_1_5_2 = "server-1.5.2/Spigot.jar"
-latest_bukkit_1_3 = "https://git.eaglercraft.online/eaglercraft/eaglercraft-builds/raw/branch/main/java/Eaglercraft_Beta_1.3_Bukkit/eaglercraft-bukkit.jar"
+#1.3 beta
+latest_bukkit_1_3 = "https://git.eaglercraft.rip/eaglercraft/eaglercraft-builds/raw/branch/main/Eaglercraft_b1.3_Bukkit/eaglercraft-bukkit.jar"
 bukkit_location_1_3 = "server-beta-1.3/eaglercraft-bukkit.jar"
-file1_1_3 = "https://git.eaglercraft.online/eaglercraft/eaglercraft-builds/raw/branch/main/java/Eaglercraft_Beta_1.3_Bukkit/eagler.yml"
+file1_1_3 = "https://git.eaglercraft.rip/eaglercraft/eaglercraft-builds/raw/branch/main/Eaglercraft_b1.3_Bukkit/eagler.yml"
 file1_location_1_3 = "server-beta-1.3/eagler.yml"
-file2_1_3 = "https://git.eaglercraft.online/eaglercraft/eaglercraft-builds/raw/branch/main/java/Eaglercraft_Beta_1.3_Bukkit/server.properties"
+file2_1_3 = "https://git.eaglercraft.rip/eaglercraft/eaglercraft-builds/raw/branch/main/Eaglercraft_b1.3_Bukkit/server.properties"
 file2_location_1_3 = "server-beta-1.3/server.properties"
 
 token = ""
@@ -83,14 +85,24 @@ def replace_in_file(file_path, search, replace):
         file.write(file_data)
 
 def set_authtoken(token):
-    with open("token", 'w') as file:
-        file.write(token)
+    # Load the JSON data from the file
+    with open('config.json', 'r') as file:
+        config_data = json.load(file)
+
+    config_data['token'] = token
+
+    # Save the updated JSON data back to the file
+    with open('config.json', 'w') as file:
+        json.dump(config_data, file, indent=4)
 
 def get_authtoken():
     global token
-    with open("token", 'r') as file:
-        file_data = file.read()
-    token = file_data
+    # Load the JSON data from the file
+    with open('config.json', 'r') as file:
+        config_data = json.load(file)
+
+    # Read the value of the "token" field into a variable
+    token = config_data.get('token', None)
 
 def remove_everything():
     clear_screen()
@@ -210,6 +222,7 @@ def main():
         print("3) Run with NGROK")
         print("4) Wipe everything")
         print("5) Exit")
+        print("6) start web dashboard (soon)")
 
         choice = input(">> ")
 

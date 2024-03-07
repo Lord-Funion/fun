@@ -1,5 +1,5 @@
 # AutoEagler
-A tool to automaticly set up a localhost eaglerXbungee, aiming to provide an alternative to singleplayer for Eaglercraft
+A tool to automatically set up a localhost eaglerXbungee, aiming to provide an alternative to Eaglercraft's singleplayer
 
 ## Progress:
 ✅ Local + NGROK tunneling
@@ -10,11 +10,9 @@ A tool to automaticly set up a localhost eaglerXbungee, aiming to provide an alt
 
 ✅ Multiple versions (1.3_beta + 1.5.2 + 1.8.8)
 
-🟠 Linux support
+🟠 Docker deploy
 
-## Usage:
-
-### Installation
+### Installation (manual)
 
 1. Download and install the latest [Python](https://python.org) release
 3. Install [Java 8](https://java.com/download/)
@@ -24,6 +22,8 @@ A tool to automaticly set up a localhost eaglerXbungee, aiming to provide an alt
 6. Open up option `1`
 7. Let it run for a while, it might pop up some windows, you're done when the main menu is back
 8. Done!
+
+## Usage:
 
 ### Local server
 
@@ -42,6 +42,19 @@ A tool to automaticly set up a localhost eaglerXbungee, aiming to provide an alt
 4. Join on `wss://<subdomain>.ngrok.io` using any client (link will be showed)
 5. Press `[Enter]` to return to the menu
 6. Open up option `5` to shut it down and close the program
+
+### Development server
+
+1. Install [Docker](https://www.docker.com/products/docker-desktop) and [Bun](https://bun.sh)
+2. Run `cd docker` to enter the docker folder
+3. Run `bun install` to install the dependencies
+4. Run `bun dev` to start the server
+5. Open your browser and go to `http://localhost:6543`
+
+### Publish to Docker Hub
+
+1. Run `bun docker` to build and push the docker image
+2. Run `bun drun` to test if the docker image is working
 
 # For Mojang:
 This tool does **NOT** include any of the source code from Minecraft, MCP, or any other illegal/copyrighted resources, nor any info on how to get it.

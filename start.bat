@@ -1,7 +1,7 @@
 @echo off
 title "Checking software ..."
 
-where python3.12 >nul 2>nul
+where python3 >nul 2>nul
 if %errorlevel%==1 (
     @echo Python not found, please install Python 3 from https://python.org.
     pause
@@ -15,11 +15,11 @@ if %errorlevel%==1 (
     exit 0
 )
 
-python3.12 -m pip install -r requirements.txt
+python3 -m pip install -r requirements.txt
 
 title "Running ..."
 
-python3.12 autoeagler.py
+python3 autoeagler.py
 
 echo Script exited.
 
